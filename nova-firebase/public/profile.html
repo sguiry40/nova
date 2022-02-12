@@ -9,17 +9,21 @@
 
 <body>
 
-Name:
+<h2>Personal Information</h2>
+
+<h3>Name</h3>
 <input type="text" id="name">
 
 <br>
+<br>
 
-Age:
+<h3>Age</h3>
 <input type="text" id="age">
 
 <br>
+<br>
 
-Gender:
+<h3>Gender</h3>
 <select id="gender" multiple>
     <option>Man</option>
     <option>Woman</option>
@@ -28,8 +32,9 @@ Gender:
 </select>
 
 <br>
+<br>
 
-Pronouns:
+<h3>Pronouns</h3>
 <select id="pronouns" multiple>
     <option>He/Him/His</option>
     <option>She/Her/Hers</option>
@@ -37,13 +42,75 @@ Pronouns:
     <option>Other</option>
 </select>
 
+<h3>Photos</h3>
+
+Photo 1:
+<div id="filesubmit1">
+    <input type="file" class="file-select" accept="image/*"/>
+</div>
+
+Photo 2:
+<div id="filesubmit2">
+    <input type="file" class="file-select" accept="image/*"/>
+</div>
+
+Photo 3:
+<div id="filesubmit3">
+    <input type="file" class="file-select" accept="image/*"/>
+</div>
+
+<br>
 <br>
 
-<button onclick="location.href='profile.html'" type="button" title="Profile">🧑</button>
-<button onclick="location.href='feedback.html'" type="button" title="Feedback">🗣</button>
-<button onclick="location.href='swipes.html'" type="button" title="Search">👀</button>
-<button onclick="location.href='feedback.html'" type="button" title="Likes">🤷</button>
-<button onclick="location.href='feedback.html'" type="button" title="Messages">💬</button>
+<h2>Preferences</h2>
+<h3>Gender</h3>
+<select id="preferred_gender">
+    <option>Men</option>
+    <option>Women</option>
+    <option>Everyone</option>
+</select>
+
+<br>
+<br>
+
+<h3>Minimum Age</h3>
+<input type="text" id="min_age">
+
+<br>
+<br>
+
+<h3>Maximum Age</h3>
+<input type="text" id="max_age">
+
+<br>
+<br>
+
+<h2>Prompts</h2>
+<h3>Talk about your hobbies!</h3>
+<input type="text" id="hobbies">
+
+<br>
+<br>
+
+<h3>If you met a genie, what would your three wishes be?</h3>
+<input type="text" id="wishes">
+
+<br>
+<br>
+
+<h3>Who is your celebrity crush?</h3>
+<input type="text" id="crush">
+
+<br>
+<br>
+
+<div style="text-align: center;">
+    <button onclick="location.href='profile.html'" type="button" title="Profile">🧑</button>
+    <button onclick="location.href='feedback.html'" type="button" title="Feedback">🗣</button>
+    <button onclick="location.href='swipes.html'" type="button" title="Search">👀</button>
+    <button onclick="location.href='feedback.html'" type="button" title="Likes">🤷</button>
+    <button onclick="location.href='feedback.html'" type="button" title="Messages">💬</button>
+</div>
 
 </body>
 
