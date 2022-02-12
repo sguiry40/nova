@@ -3,6 +3,8 @@ import { getDatabase } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-d
 import { collection, addDoc, setDoc, updateDoc } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore.js";
 import { getAuth, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.1.3/firebase-auth.js";
 import { getFirestore } from "firebase/firestore"
+import 'firebase/firestore';
+import 'firebase/auth';
 
 const firebase = require("firebase");
 // Required for side-effects
