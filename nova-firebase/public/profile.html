@@ -106,14 +106,37 @@
 
         <div class="mb-3">
             <label for="InputId" class="form-label d-flex align-items-center text-subtle">Minimum Age</label>
-            <input type="range" name="InputName" id="InputId" class="form-range" value="18" min="18" max="100" oninput="OutputId.value = InputId.value">
-            <output name="OutputName" id="OutputId">18</output>
-        </div>
 
-        <div class="mb-3">
+            <input type="range" name="InputName" id="InputId" class="form-range" value="18" min="18" max = "100" oninput="updateMin()">
+            <output name="OutputName" id="OutputId">18</output>
+
             <label for="InputId2" class="form-label d-flex align-items-center text-subtle">Maximum Age</label>
-            <input type="range" name="InputName2" id="InputId2" class="form-range" value="25" min="18" max="100" oninput="OutputId2.value = InputId2.value">
+            <input type="range" name="InputName2" id="InputId2" class="form-range" value="25" min="18" max="100" oninput="updateMax()">
             <output name="OutputName2" id="OutputId2">25</output>
+
+            <script>
+                function updateMin() {
+                    let inp = document.getElementById("InputId");
+                    let out = document.getElementById("OutputId");
+                    let inp2 = document.getElementById("InputId2");
+                    let out2 = document.getElementById("OutputId2");
+
+                    out.value = inp.value;
+                    inp2.value = Math.max(inp2.value, inp.value);
+                    out2.value = Math.max(inp2.value, inp.value);
+                }
+
+                function updateMax() {
+                    let inp = document.getElementById("InputId");
+                    let out = document.getElementById("OutputId");
+                    let inp2 = document.getElementById("InputId2");
+                    let out2 = document.getElementById("OutputId2");
+
+                    out2.value = inp2.value;
+                    inp.value = Math.min(inp2.value, inp.value);
+                    out.value = Math.min(inp2.value, inp.value);
+                }
+            </script>
         </div>
 
         <h3 class="text-center">Prompts</h3>
