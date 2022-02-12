@@ -21,7 +21,7 @@ const auth = getAuth(firebaseApp);
 const db = getFirestore(firebaseApp);
 
 //Detect auth state
-firebase.auth().onAuthStateChanged(function(user) {
+auth.onAuthStateChanged(function(user) {
     if (user) {
         // User is signed in.
 
@@ -85,5 +85,5 @@ function login() {
 }
 
 function logout(){
-    firebase.auth().signOut();
+    auth.signOut();
 }
