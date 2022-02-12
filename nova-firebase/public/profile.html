@@ -3,6 +3,8 @@
 <head>
     <title>nova - profile</title>
 
+    Profile
+
     <button onclick="location.href='profile.html'" type="button" title="Profile">🧑</button>
     <button onclick="location.href='feedback.html'" type="button" title="Feedback">🗣</button>
     <button onclick="location.href='swipes.html'" type="button" title="Search">👀</button>
@@ -10,4 +12,31 @@
     <button onclick="location.href='feedback.html'" type="button" title="Messages">💬</button>
 
 </head>
+
+<body>
+
+Name:
+<input type="text" id="name">
+
+Age:
+<input type="text" id="age">
+
+Gender:
+<select id="gender" onchange="selectGender()">
+    <option>Man</option>
+    <option>Woman</option>
+    <option>Nonbinary</option>
+    <option>Other</option>
+</select>
+
+Pronouns:
+<select id="pronouns" onchange="selectPronouns()">
+    <option>He/Him/His</option>
+    <option>She/Her/Hers</option>
+    <option>They/Them/Theirs</option>
+    <option>Other</option>
+</select>
+
+</body>
+
 </html>
