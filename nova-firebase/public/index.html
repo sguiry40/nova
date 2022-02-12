@@ -29,17 +29,12 @@
 </div>
 
 <script>
+    let userEmail;
+    let userPass;
+
     function login(){
-
-        let userEmail = document.getElementById("email_field").value;
-        let userPass = document.getElementById("password_field").value;
-
-        firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function(error) {
-            let errorMessage = error.message;
-
-            window.alert("Error : " + errorMessage);
-        });
-
+        userEmail = document.getElementById("email_field").value;
+        userPass = document.getElementById("password_field").value;
     }
 </script>
 

@@ -10,9 +10,7 @@ const app = admin.initializeApp({
     storageBucket: "nova-f2979.appspot.com",
     messagingSenderId: "490015709518",
     appId: "1:490015709518:web:e87ba1ea9b98e810a8a61f"
-});
+}, 'nova');
 
 // Get a reference to the database service
 const database = getDatabase(app);
-
-console.log(database);
