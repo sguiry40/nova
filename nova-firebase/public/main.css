@@ -1,0 +1,46 @@
+.testimonial_left {
+	padding: 16px;
+	padding-left: 160px;
+	margin: 16px 0;
+}
+
+.testimonial_left::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.testimonial_left img {
+	float: left;
+	margin-right: 10px;
+	border-radius: 50%;
+}
+
+.testimonial_left span {
+	font-size: 25px;
+	font-style: italic;
+}
+
+.testimonial_right {
+	padding: 16px;
+	padding-right: 160px;
+	float: right;
+	margin: 16px 0;
+}
+
+.testimonial_right::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.testimonial_right img {
+	float: right;
+	margin-right: 10px;
+	border-radius: 50%;
+}
+
+.testimonial_right span {
+	font-size: 25px;
+	font-style: italic;
+}
