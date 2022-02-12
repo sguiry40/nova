@@ -1,40 +1,27 @@
 <!DOCTYPE html>
-<html lang = "en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" context="width=device-width, initial-scale=1.0">
-    <script src="script.js" type="module"></script>
     <title>nova - messages</title>
-    <style>
-        body {
-            margin: 0 auto;
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            height: 100vh;
-            width: 90%;
-            max-width: 1200px;
-        }
-        #message-container {
-            border: 1px solid black;
-            flex-grow: 1;
-            overflow-y: auto;
-        }
-        #message-container div {
-            background-color: #CCC;
-            padding: 5px;
-        }
-        #message-container div:nth-child(2n)
-    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css">
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <div class="container-fluid mx-4">
+            <a class="navbar-brand lh-lg fs-4 fw-bold grad-font" href="#">Nova</a>
+        </div>
+    </nav>
 
     <input type="text" id="message">
 
     <button onclick="location.href='profile.html'" type="button" title="Profile">🧑</button>
     <button onclick="location.href='feedback.html'" type="button" title="Feedback">🗣</button>
     <button onclick="location.href='swipes.html'" type="button" title="Search">👀</button>
-    <button onclick="location.href='feedback.html'" type="button" title="Likes">🤷</button>
-    <button onclick="location.href='feedback.html'" type="button" title="Messages">💬</button>
+    <button onclick="location.href='whoswiped.html'" type="button" title="Likes">🤷</button>
+    <button onclick="location.href='messages.html'" type="button" title="Messages">💬</button>
 
-</head>
+</body>
 </html>

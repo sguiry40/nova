@@ -1,18 +1,51 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
-    <h1>Review</h1>
-
-    <h2>Leave a Review</h2>
-    <input type="text" id="review">
-
-    <br>
-
-    <h2>Rate This User</h2>
-    <input type="text" id="rating">
-
-    <br>
-
-    <button title="Save" id="save">Save</button>
+    <title>nova - review</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css">
 </head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <div class="container-fluid mx-4">
+            <a class="navbar-brand lh-lg fs-4 fw-bold grad-font" href="#">Nova</a>
+        </div>
+    </nav>
+
+    <div style="text-align: center;">
+        <button onclick="location.href='profile.html'" type="button" title="Profile">🧑</button>
+        <button onclick="location.href='feedback.html'" type="button" title="Feedback">🗣</button>
+        <button onclick="location.href='swipes.html'" type="button" title="Search">👀</button>
+        <button onclick="location.href='whoswiped.html'" type="button" title="Likes">🤷</button>
+        <button onclick="location.href='messages.html'" type="button" title="Messages">💬</button>
+    </div>
+
+<h1>Review</h1>
+
+<h2>Leave a Review!</h2>
+<input type="text" id="review">
+
+<br>
+
+<h2>Rate Your Match</h2>
+<input type="radio" name="Star" id="1" value="1">
+<input type="radio" name="Star" id="2" value="2">
+<input type="radio" name="Star" id="3" value="3">
+<input type="radio" name="Star" id="4" value="4">
+<input type="radio" name="Star" id="5" value="5">
+
+<br>
+<br>
+
+<div style="text-align: center;">
+    <button onclick="location.href='profile.html'" type="button" title="Profile">🧑</button>
+    <button onclick="location.href='feedback.html'" type="button" title="Feedback">🗣</button>
+    <button onclick="location.href='swipes.html'" type="button" title="Search">👀</button>
+    <button onclick="location.href='whoswiped.html'" type="button" title="Likes">🤷</button>
+    <button onclick="location.href='messages.html'" type="button" title="Messages">💬</button>
+</div>
+
+</body>
 </html>
