@@ -1,5 +1,6 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js';
 import { getDatabase } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-database.js";
+import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-auth.js";
 
 const firebaseConfig = {
@@ -15,18 +16,40 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 // Get a reference to the database service
-const database = getDatabase(app);
+const db = getFirestore();
 
 function login(){
 
     let userEmail = document.getElementById("email_field").value;
     let userPass = document.getElementById("password_field").value;
 
-    firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function(error) {
+    firebase.auth().signInWithEmailAndPassword(userEmail, userPass)
+    .then((userCredential) => {
+    	const user = userCredential.user;
+    	console.log(user);
+    	try {
+			const docRef = await setDoc(collection(db, "users", user.uid, {merge: true}), {
+				name: user.name
+			});
+			console.log("Document written with ID: ", docRef.id);
+		} catch (e) {
+			console.error("Error adding document: ", e);
+		}
+    })
+    .catch(function(error) {
         let errorMessage = error.message;
 
         window.alert("Error : " + errorMessage);
     });
+    
+    // example of getting data
+    //const docSnapshot = await getDoc(doc(db, "users", user.uid);
+	//if (docSnapshot.exists()) {
+	//	console.log(docSnapshot.data);
+	//}
+	
+	// example of updating data
+	//await updateDoc(doc(db, "users", user.uid), { age: 20 });
 
 }
 
