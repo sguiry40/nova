@@ -1,7 +1,12 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js';
 import { getDatabase } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-database.js";
-import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore.js";
-import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-auth.js";
+import { collection, addDoc, setDoc, updateDoc } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore.js";
+import { getAuth, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.1.3/firebase-auth.js";
+import { getFirestore } from "firebase/firestore"
+
+const firebase = require("firebase");
+// Required for side-effects
+require("firebase/firestore");
 
 const firebaseConfig = {
     apiKey: "AIzaSyAScu_-xjhfkbmDqjSmO71zSIhU-j1tlD0",
@@ -10,13 +15,21 @@ const firebaseConfig = {
     projectId: "nova-f2979",
     storageBucket: "nova-f2979.appspot.com",
     messagingSenderId: "490015709518",
-    appId: "1:490015709518:web:e87ba1ea9b98e810a8a61f"
+    appId: "1:490015709518:web:e87ba1ea9b98e810a8a61f",
 };
 
-const app = initializeApp(firebaseConfig);
+const app = firebase.initializeApp({
+    apiKey: "AIzaSyAScu_-xjhfkbmDqjSmO71zSIhU-j1tlD0",
+    authDomain: "nova-f2979.firebaseapp.com",
+    databaseURL: "https://nova-f2979-default-rtdb.firebaseio.com",
+    projectId: "nova-f2979",
+    storageBucket: "nova-f2979.appspot.com",
+    messagingSenderId: "490015709518",
+    appId: "1:490015709518:web:e87ba1ea9b98e810a8a61f",
+})
 
 // Get a reference to the database service
-const db = getFirestore();
+const db = firebase.getFirestore();
 
 function login(){
 
@@ -24,17 +37,17 @@ function login(){
     let userPass = document.getElementById("password_field").value;
 
     firebase.auth().signInWithEmailAndPassword(userEmail, userPass)
-    .then((userCredential) => {
-    	const user = userCredential.user;
-    	console.log(user);
-    	try {
-			const docRef = await setDoc(collection(db, "users", user.uid, {merge: true}), {
-				name: user.name
-			});
-			console.log("Document written with ID: ", docRef.id);
-		} catch (e) {
-			console.error("Error adding document: ", e);
-		}
+    .then(async (userCredential) => {
+        const user = userCredential.user;
+        console.log(user);
+        try {
+            const docRef = await setDoc(collection(db, "users", user.uid, {merge: true}), {
+                name: user.name
+            });
+            console.log("Document written with ID: ", docRef.id);
+        } catch (e) {
+            console.error("Error adding document: ", e);
+        }
     })
     .catch(function(error) {
         let errorMessage = error.message;
@@ -67,4 +80,4 @@ firebase.auth().onAuthStateChanged((user) => {
   }
 });
 
-console.log(database);
+console.log(db);
