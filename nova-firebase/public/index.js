@@ -16,4 +16,15 @@ const app = initializeApp(firebaseConfig);
 // Get a reference to the database service
 const database = getDatabase(app);
 
-console.log(database);
+function login(){
+
+    let userEmail = document.getElementById("email_field").value;
+    let userPass = document.getElementById("password_field").value;
+
+    firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function(error) {
+        let errorMessage = error.message;
+
+        window.alert("Error : " + errorMessage);
+    });
+
+}
