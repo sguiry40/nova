@@ -28,6 +28,21 @@
 
 </div>
 
+<script>
+    function login(){
+
+        let userEmail = document.getElementById("email_field").value;
+        let userPass = document.getElementById("password_field").value;
+
+        firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function(error) {
+            let errorMessage = error.message;
+
+            window.alert("Error : " + errorMessage);
+        });
+
+    }
+</script>
+
 <div id="login_div" class="main-div">
     <h3>Firebase Web login Example</h3>
     <input type="email" placeholder="Email" id="email_field" />
