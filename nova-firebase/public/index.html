@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -11,9 +11,7 @@
     <script type="module" src="https://www.gstatic.com/firebasejs/9.1.3/firebase-auth-compat.js"></script>
     <script type="module" src="https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js"></script>
     <script type="module" src="https://www.gstatic.com/firebasejs/9.1.3/firebase-database.js"></script>
-    <script type="module" src="./index.js"></script>
-    <script type="text/javascript" src="https://static.firebase.com/v0/firebase-debug.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+    <script type="module" src="index.js"></script>
 </head>
 
 <body>
@@ -29,6 +27,16 @@
 <div id="firebaseui-auth-container">
 
 </div>
+
+<script>
+    let userEmail;
+    let userPass;
+
+    function login(){
+        userEmail = document.getElementById("email_field").value;
+        userPass = document.getElementById("password_field").value;
+    }
+</script>
 
 <div id="login_div" class="main-div">
     <h3>Firebase Web login Example</h3>
@@ -48,9 +56,6 @@
      alt="Full Nova Logo"
      width="600"
      height="600">
-
-<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
-<script src="index.js"></script>
 
 </body>
 </html>

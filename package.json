@@ -1,10 +1,12 @@
 {
   "dependencies": {
     "@aws-amplify/ui-react": "^2.3.0",
+    "@firebase/firestore": "^3.4.4",
     "aws-amplify": "^4.3.14",
     "backendless": "^6.3.6",
     "cookie-parser": "^1.4.6",
     "express": "^4.17.2",
+    "firebase": "^8.10.0",
     "firebase-admin": "^10.0.2",
     "fs": "^0.0.1-security",
     "https": "^1.0.0"

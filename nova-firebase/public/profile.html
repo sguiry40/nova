@@ -23,102 +23,197 @@
         <button onclick="location.href='messages.html'" type="button" title="Messages">💬</button>
     </div>
 
-<h1>Profile</h1>
+<center><h1 style="margin-top: 2%">Profile</h1></center>
 
-<h2>Personal Information</h2>
+<div class="col-10 mx-auto col-lg-5">
+    <form method="post" class="p-5 border border-2 rounded-3 bg-white">
 
-<h3>Name</h3>
-<input type="text" id="name">
+        <h3 class="text-center">User Information</h3>
 
-<br>
-<br>
+        <div class="mb-3">
+            <label for="starting" class="form-label d-flex align-items-center text-subtle">
+<!--                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="color-green me-2" viewBox="0 0 16 16">-->
+<!--                    <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>-->
+<!--                </svg>-->
+                Name
+            </label>
+            <input name="starting" type="text" class="form-control light-input" id="starting"
+                   placeholder="e.g. David Guiry">
+        </div>
+        <div class="mb-3">
+            <label for="destination" class="form-label d-flex align-items-center text-subtle">
+<!--                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="color-green me-2" viewBox="0 0 16 16">-->
+<!--                    <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>-->
+<!--                </svg>-->
+                Age
+            </label>
+            <input name="age" type="number" class="form-control light-input" id="destination"
+                   placeholder="e.g. 83">
+        </div>
 
-<h3>Age</h3>
-<input type="text" id="age">
+        <div class="mb-3">
+            <label for="gender" class="form-label d-flex align-items-center text-subtle">
+                Gender(s)
+            </label>
+            <select id="gender" class="form-select" multiple aria-label="multiple select example">
+                <option value="1">Male</option>
+                <option value="2">Female</option>
+                <option value="3">Non-binary</option>
+                <option value="4">Other</option>
+            </select>
+        </div>
 
-<br>
-<br>
+        <div class="mb-3">
+            <label for="pronouns" class="form-label d-flex align-items-center text-subtle">
+                Pronouns
+            </label>
+            <select id="pronouns" class="form-select" multiple aria-label="multiple select example">
+                <option value="1">He/him</option>
+                <option value="2">She/her</option>
+                <option value="3">They/them</option>
+                <option value="4">Other</option>
+            </select>
+        </div>
 
-<h3>Gender</h3>
-<select id="gender" multiple>
-    <option>Man</option>
-    <option>Woman</option>
-    <option>Nonbinary</option>
-    <option>Other</option>
-</select>
+        <div class="mb-3">
+            <label for="formFileSm" class="form-label">Photo 1</label>
+            <input class="form-control form-control-sm" type="file" id="formFileSm">
+        </div>
 
-<br>
-<br>
+        <div class="mb-3">
+            <label for="formFileSm2" class="form-label">Photo 2</label>
+            <input class="form-control form-control-sm" type="file" id="formFileSm2">
+        </div>
 
-<h3>Pronouns</h3>
-<select id="pronouns" multiple>
-    <option>He/Him/His</option>
-    <option>She/Her/Hers</option>
-    <option>They/Them/Theirs</option>
-    <option>Other</option>
-</select>
+        <div class="mb-3">
+            <label for="formFileSm3" class="form-label">Photo 3</label>
+            <input class="form-control form-control-sm" type="file" id="formFileSm3">
+        </div>
 
-<h3>Photos</h3>
+        <h3 class="text-center">Preferences</h3>
 
-Photo 1:
-<div id="filesubmit1">
-    <input type="file" class="file-select" accept="image/*"/>
+        <div class="mb-3">
+            <label for="preferred_gender" class="form-label d-flex align-items-center text-subtle">
+                Preferred Gender
+            </label>
+            <select id="preferred_gender" class="form-select" multiple aria-label="multiple select example">
+                <option value="1">Male</option>
+                <option value="2">Female</option>
+                <option value="3">Non-binary</option>
+                <option value="4">Other</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="InputId" class="form-label d-flex align-items-center text-subtle">Minimum Age</label>
+
+            <input type="range" name="InputName" id="InputId" class="form-range" value="18" min="18" max = "100" oninput="updateMin()">
+            <output name="OutputName" id="OutputId">18</output>
+
+            <label for="InputId2" class="form-label d-flex align-items-center text-subtle">Maximum Age</label>
+            <input type="range" name="InputName2" id="InputId2" class="form-range" value="25" min="18" max="100" oninput="updateMax()">
+            <output name="OutputName2" id="OutputId2">25</output>
+
+            <script>
+                function updateMin() {
+                    let inp = document.getElementById("InputId");
+                    let out = document.getElementById("OutputId");
+                    let inp2 = document.getElementById("InputId2");
+                    let out2 = document.getElementById("OutputId2");
+
+                    out.value = inp.value;
+                    inp2.value = Math.max(inp2.value, inp.value);
+                    out2.value = Math.max(inp2.value, inp.value);
+                }
+
+                function updateMax() {
+                    let inp = document.getElementById("InputId");
+                    let out = document.getElementById("OutputId");
+                    let inp2 = document.getElementById("InputId2");
+                    let out2 = document.getElementById("OutputId2");
+
+                    out2.value = inp2.value;
+                    inp.value = Math.min(inp2.value, inp.value);
+                    out.value = Math.min(inp2.value, inp.value);
+                }
+            </script>
+        </div>
+
+        <h3 class="text-center">Prompts</h3>
+
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label d-flex align-items-center text-subtle">
+                Talk about your hobbies!
+            </label>
+            <div class="form-group">
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea2" class="form-label d-flex align-items-center text-subtle">
+                If you met a genie, what would your three wishes be?
+            </label>
+            <div class="form-group">
+                <textarea class="form-control" id="exampleFormControlTextarea2" rows="3"></textarea>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea3" class="form-label d-flex align-items-center text-subtle">
+                Who is your celebrity crush?
+            </label>
+            <div class="form-group">
+                <textarea class="form-control" id="exampleFormControlTextarea3" rows="3"></textarea>
+            </div>
+        </div>
+
+<!--            <div class="mb-3">-->
+<!--                <label for="formFile2" class="form-label">Photo 2</label>-->
+<!--                <input class="form-control" type="file" id="formFile2">-->
+<!--            </div>-->
+
+<!--            <div class="mb-3">-->
+<!--                <label for="formFile3" class="form-label">Photo 3</label>-->
+<!--                <input class="form-control" type="file" id="formFile3">-->
+<!--            </div>-->
+
+        <div class="d-flex align-items-center mt-4">
+            <button type="submit" class="btn btn-dark border-2" onclick="spin()">
+                Confirm&nbsp;
+<!--                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">-->
+<!--                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>-->
+<!--                </svg>-->
+            </button>
+            <div id="loadingSpinner" class="spinner-border spinner-border-sm ms-auto" role="status" style="display: none;" aria-hidden="true"></div>
+        </div>
+    </form>
 </div>
 
-Photo 2:
-<div id="filesubmit2">
-    <input type="file" class="file-select" accept="image/*"/>
-</div>
-
-Photo 3:
-<div id="filesubmit3">
-    <input type="file" class="file-select" accept="image/*"/>
-</div>
-
-<br>
-<br>
-
-<h2>Preferences</h2>
-<h3>Gender</h3>
-<select id="preferred_gender">
-    <option>Men</option>
-    <option>Women</option>
-    <option>Everyone</option>
-</select>
-
-<br>
-<br>
-
-<h3>Minimum Age</h3>
-<input type="text" id="min_age">
-
-<br>
-<br>
-
-<h3>Maximum Age</h3>
-<input type="text" id="max_age">
-
-<br>
-<br>
-
-<h2>Prompts</h2>
-<h3>Talk about your hobbies!</h3>
-<input type="text" id="hobbies">
-
-<br>
-<br>
-
-<h3>If you met a genie, what would your three wishes be?</h3>
-<input type="text" id="wishes">
-
-<br>
-<br>
-
-<h3>Who is your celebrity crush?</h3>
-<input type="text" id="crush">
-
-<br>
-<br>
+<!-- Attributes for user:
+        - Name (String)
+        - Gender (List of String)
+        - Pronouns (List of String)
+        - Age (Integer)
+        - Preferred Gender(s) (List of String)
+        - Min Age to Maximum Age Slider (Integers)
+        - Photo 1,
+        - Photo 2,
+        - Photo 3 (Images)
+        - Prompt 1 Answer,
+        - Prompt 2 Answer,
+        - Prompt 3 Answer (Strings)
+        - UserID (String)
+        - Reviews (List of Review)
+        -    Review (tuple: [Integer, String, Date, String]) ([Rating out of 5, Review text, Date of review, UserID])
+        - Feedbacks (List of Feedback)
+        -    Feedback (tuple: [String, Date, String]) ([Feedback text, Date of feedback, UserID])
+        - RightSwipedBy (List of Users)
+        - RightSwipedOn (List of Users)
+        - LeftSwipedOn (List of Users)
+        - Messages (List of Messages)
+        -    Message [String, String, Date, String] ([UserID from, to, Date of Message, Content])
+-->
 
 </body>
 
