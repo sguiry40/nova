@@ -8,7 +8,10 @@
     <title>nova - login</title>
     <script type="module" src="https://www.gstatic.com/firebasejs/9.1.3/firebase-app-compat.js"></script>
     <script type="module" src="https://www.gstatic.com/firebasejs/9.1.3/firebase-auth-compat.js"></script>
-    <script type="module">import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js";
+    <script type="module" src="index.js"></script>
+    <script type="text/javascript" src="https://static.firebase.com/v0/firebase-debug.js"></script>
+    <script type="module">import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js";</script>
+    <script type="text/javascript" src="https://static.firebase.com/v0/firebase-debug.js">
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -34,9 +37,8 @@
             signInSuccessUrl: 'profile.html',
             signInOptions: [
                 // Leave the lines as is for the providers you want to offer your users.
-                firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-                firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-                firebase.auth.EmailAuthProvider.PROVIDER_ID,
+                firebase.auth.EmailAuthProvider.PROVIDER_ID
+                // writeUserData(email, password)
             ],
             // tosUrl and privacyPolicyUrl accept either url string or a callback
             // function.
@@ -47,6 +49,13 @@
                 window.location.assign('<your-privacy-policy-url>');
             }
         };
+
+            var cred = firebase.auth.EmailAuthProvider.credential(
+                email,
+                password
+            );
+
+            writeUserData(email, password)
 
             // Initialize the FirebaseUI Widget using Firebase.
             var ui = new firebaseui.auth.AuthUI(firebase.auth());
@@ -64,12 +73,31 @@
 <!-- The surrounding HTML is left untouched by FirebaseUI.
      Your app may use that space for branding, controls and other customizations.-->
 <h1>Welcome to nova!</h1>
-<div id="firebaseui-auth-container"></div>
+<div id="firebaseui-auth-container">
+
+</div>
+
+<div id="login_div" class="main-div">
+    <h3>Firebase Web login Example</h3>
+    <input type="email" placeholder="Email" id="email_field" />
+    <input type="password" placeholder="Password" id="password_field" />
+
+    <button onclick="login()">Login to Account</button>
+</div>
+
+<div id="user_div" class="loggedin-div">
+    <h3>Welcome User</h3>
+    <p id="user_para">Welcome to Firebase web login Example. You're currently logged in.</p>
+    <button onclick="logout()">Logout</button>
+</div>
 
 <img src="novafulllogo.png"
      alt="Full Nova Logo"
      width="600"
      height="600">
+
+<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+<script src="index.js"></script>
 
 </body>
 </html>
