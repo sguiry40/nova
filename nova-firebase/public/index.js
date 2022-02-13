@@ -128,10 +128,10 @@ function logout() {
 if (document.getElementById("login_button") != null) {
     document.getElementById("login_button").addEventListener("click", login, false);
 }
-if (document.getElementById("signup_button") != null) {
+else if (document.getElementById("signup_button") != null) {
     document.getElementById("signup_button").addEventListener("click", signup, false)
 }
-if (document.getElementById("logout_button") != null) {
+else if (document.getElementById("logout_button") != null) {
     document.getElementById("logout_button").addEventListener("click", logout, false);
 }
 
