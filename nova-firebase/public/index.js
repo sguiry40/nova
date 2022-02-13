@@ -1,4 +1,4 @@
-import { collection, setDoc, getFirestore, addDoc } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore.js";
+import { collection, setDoc, getFirestore, addDoc, doc } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js"
 import { getAuth, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-auth.js"
 
@@ -41,7 +41,7 @@ function signup(){
             } catch (e) {
                 console.error("Error adding document: ", e);
             }
-            window.location.replace('https://nova-f2979.web.app/profile.html')
+            window.location.replace('profile.html')
         })
         .catch(function(error) {
             let errorMessage = error.message;
@@ -50,7 +50,7 @@ function signup(){
         });
 }
 
-function login(){
+async function login(){
 
     let userEmail = document.getElementById("email_field").value;
     let userPass = document.getElementById("password_field").value;
@@ -67,13 +67,30 @@ function login(){
             // } catch (e) {
             //     console.error("Error adding document: ", e);
             // }
-            window.location.replace('https://nova-f2979.web.app/profile.html')
+            window.location.replace('profile.html')
         })
         .catch(function(error) {
             let errorMessage = error.message;
 
             window.alert("Error : " + errorMessage);
         });
+    
+	createUserWithEmailAndPassword(getAuth(), userEmail, userPass)
+    .then((userCredential) => {
+        const user = userCredential.user;
+        console.log(user);
+        try {
+            const docRef = doc(db, "users", user.uid);
+            setDoc(docRef, {name: user.name }, { merge: true});
+            console.log("Document written with ID: ", docRef.id);
+        } catch (e) {
+            console.error("Error adding document: ", e);
+        }
+        window.location.replace('profile.html')
+    })
+    .catch(function(error) {
+        let errorMessage = error.message;
+    });
 
     // example of getting data
     //const docSnapshot = await getDoc(doc(db, "users", user.uid);
@@ -106,7 +123,7 @@ function logout() {
     }).catch((error) => {
         console.log(error);
     })
-    window.location.replace('https://nova-f2979.web.app/index.html');
+    window.location.replace('index.html');
 }
 if (document.getElementById("login_button") != null) {
     document.getElementById("login_button").addEventListener("click", login, false);
