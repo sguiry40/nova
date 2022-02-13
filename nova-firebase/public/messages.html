@@ -28,7 +28,7 @@
         <button class = "button" onclick="location.href='profile.html'" title = "Profile">🧑</button>
         <button class = "button" onclick="location.href='feedback.html'" title = "Feedback">🗣</button>
         <button class = "button" onclick="location.href='swipes.html'" title="Search">👀</button>
-        <button class = "button" onclick="location.href='whoswiped.html'" title="Likes">🤷</button>
+<!--        <button class = "button" onclick="location.href='whoswiped.html'" title="Likes">🤷</button>-->
         <button class = "button" onclick="location.href='messages.html'" title="Messages">💬</button>
     </div>
 
@@ -37,12 +37,67 @@
 
             <h3 class="text-center">Messages</h3>
 
-            <div class="mb-3">
-                <label for="starting" class="form-label d-flex align-items-center text-subtle">
-                    Name
+            <div class="mb-3" style="margin-top: 10px;">
+                <label for="message" class="form-label d-flex align-items-center text-subtle">
+                    <h3>David Habboosh</h3>
                 </label>
-                <input name="starting" type="text" class="form-control light-input" id="starting"
-                       placeholder="e.g. Hello!">
+                <div class="form-group">
+                    <textarea class="form-control" id="message" rows="3"></textarea>
+                </div>
+
+                <h6>Review</h6>
+                <div class="form-group">
+                    <textarea class="form-control" rows="3"></textarea>
+                </div>
+
+                <div class="mb-3" style="text-align: center;">
+                    <label style="text-align: center;" for="rating" class="form-label d-flex align-items-center text-subtle">Rating</label>
+                    <input type="range" name="InputNameAge" id="rating" class="form-range" value="1" min="1" max = "5" oninput="OutputIdAge.value = rating.value">
+                    <output name="OutputNameAge" id="OutputIdAge">1</output>
+
+                </div>
+            </div>
+
+            <div class="mb-3" style="margin-top: 10px;">
+                <label for="message" class="form-label d-flex align-items-center text-subtle">
+                    <h3>Sean Guiry</h3>
+                </label>
+                <div class="form-group">
+                    <textarea class="form-control" id="message2" rows="3"></textarea>
+                </div>
+
+                <h6>Review</h6>
+                <div class="form-group">
+                    <textarea class="form-control" rows="3"></textarea>
+                </div>
+
+                <div class="mb-3" style="text-align: center;">
+                    <label style="text-align: center;" for="rating2" class="form-label d-flex align-items-center text-subtle">Rating</label>
+                    <input type="range" name="InputNameAge" id="rating2" class="form-range" value="1" min="1" max = "5" oninput="OutputIdAge2.value = rating2.value">
+                    <output name="OutputNameAge" id="OutputIdAge2">1</output>
+
+                </div>
+            </div>
+
+            <div class="mb-3" style="margin-top: 10px;">
+                <label for="message" class="form-label d-flex align-items-center text-subtle">
+                    <h3>Atta Nayal</h3>
+                </label>
+                <div class="form-group">
+                    <textarea class="form-control" id="message3" rows="3"></textarea>
+                </div>
+
+                <h6>Review</h6>
+                <div class="form-group">
+                    <textarea class="form-control" rows="3"></textarea>
+                </div>
+
+                <div class="mb-3" style="text-align: center;">
+                    <label style="text-align: center;" for="rating3" class="form-label d-flex align-items-center text-subtle">Rating</label>
+                    <input type="range" name="InputNameAge" id="rating3" class="form-range" value="1" min="1" max = "5" oninput="OutputIdAge3.value = rating3.value">
+                    <output name="OutputNameAge" id="OutputIdAge3">1</output>
+
+                </div>
             </div>
         </form>
     </div>
