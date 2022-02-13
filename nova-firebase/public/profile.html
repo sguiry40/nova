@@ -13,12 +13,22 @@
 
     <script type="text/javascript">
         function submit() {
-            console.log("submitted");
-
             let name = document.getElementById("starting").value;
-            let gender = document.getElementById("gender").value;
-            let pronouns = document.getElementById("pronouns").value;
-            let preferred_gender = document.getElementById("preferred_gender").value;
+            let photo1 = document.getElementById("photo1").value;
+            let photo2 = document.getElementById("photo2").value;
+            let photo3 = document.getElementById("photo3").value;
+            let prompt1 = document.getElementById("prompt1").value;
+            let prompt2 = document.getElementById("prompt1").value;
+            let prompt3 = document.getElementById("prompt1").value;
+
+            if (name === "" || photo1 === "" || photo2 === "" || photo3 === ""
+            || prompt1 === "" || prompt2 === "" || prompt3 === "") {
+                alert("Be sure to fill out your whole profile!");
+            }
+
+            else {
+                // add to database
+            }
         }
     </script>
 </head>
@@ -70,11 +80,11 @@
             <label for="gender" class="form-label d-flex align-items-center text-subtle">
                 Gender(s)
             </label>
-            <select id="gender" class="form-select" multiple aria-label="multiple select example">
-                <option value="1">Male</option>
-                <option value="2">Female</option>
-                <option value="3">Non-binary</option>
-                <option value="4">Other</option>
+            <select id="gender" class="form-select" aria-label="gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Non-binary">Non-binary</option>
+                <option value="Other">Other</option>
             </select>
         </div>
 
@@ -82,27 +92,27 @@
             <label for="pronouns" class="form-label d-flex align-items-center text-subtle">
                 Pronouns
             </label>
-            <select id="pronouns" class="form-select" multiple aria-label="multiple select example">
-                <option value="1">He/him</option>
-                <option value="2">She/her</option>
-                <option value="3">They/them</option>
-                <option value="4">Other</option>
+            <select id="pronouns" class="form-select" aria-label="pronouns">
+                <option value="He/him/his">He/him/his</option>
+                <option value="She/her/hers">She/her/hers</option>
+                <option value="They/them/theirs">They/them/theirs</option>
+                <option value="Other">Other</option>
             </select>
         </div>
 
         <div class="mb-3">
-            <label for="formFileSm" class="form-label">Photo 1</label>
-            <input class="form-control form-control-sm" type="file" id="formFileSm">
+            <label for="photo1" class="form-label">Photo 1</label>
+            <input class="form-control form-control-sm" type="file" id="photo1">
         </div>
 
         <div class="mb-3">
-            <label for="formFileSm2" class="form-label">Photo 2</label>
-            <input class="form-control form-control-sm" type="file" id="formFileSm2">
+            <label for="photo2" class="form-label">Photo 2</label>
+            <input class="form-control form-control-sm" type="file" id="photo2">
         </div>
 
         <div class="mb-3">
-            <label for="formFileSm3" class="form-label">Photo 3</label>
-            <input class="form-control form-control-sm" type="file" id="formFileSm3">
+            <label for="photo3" class="form-label">Photo 3</label>
+            <input class="form-control form-control-sm" type="file" id="photo3">
         </div>
 
         <h3 class="text-center">Preferences</h3>
@@ -111,11 +121,11 @@
             <label for="preferred_gender" class="form-label d-flex align-items-center text-subtle">
                 Preferred Gender
             </label>
-            <select id="preferred_gender" class="form-select" multiple aria-label="multiple select example">
-                <option value="1">Male</option>
-                <option value="2">Female</option>
-                <option value="3">Non-binary</option>
-                <option value="4">Other</option>
+            <select id="preferred_gender" class="form-select" aria-label="preferred gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Non-binary">Non-binary</option>
+                <option value="Other">Other</option>
             </select>
         </div>
 
@@ -157,29 +167,29 @@
         <h3 class="text-center">Prompts</h3>
 
         <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label d-flex align-items-center text-subtle">
+            <label for="prompt1" class="form-label d-flex align-items-center text-subtle">
                 Talk about your hobbies!
             </label>
             <div class="form-group">
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <textarea class="form-control" id="prompt1" rows="3"></textarea>
             </div>
         </div>
 
         <div class="mb-3">
-            <label for="exampleFormControlTextarea2" class="form-label d-flex align-items-center text-subtle">
+            <label for="prompt2" class="form-label d-flex align-items-center text-subtle">
                 If you met a genie, what would your three wishes be?
             </label>
             <div class="form-group">
-                <textarea class="form-control" id="exampleFormControlTextarea2" rows="3"></textarea>
+                <textarea class="form-control" id="prompt2" rows="3"></textarea>
             </div>
         </div>
 
         <div class="mb-3">
-            <label for="exampleFormControlTextarea3" class="form-label d-flex align-items-center text-subtle">
+            <label for="prompt3" class="form-label d-flex align-items-center text-subtle">
                 Who is your celebrity crush?
             </label>
             <div class="form-group">
-                <textarea class="form-control" id="exampleFormControlTextarea3" rows="3"></textarea>
+                <textarea class="form-control" id="prompt3" rows="3"></textarea>
             </div>
         </div>
 
@@ -189,8 +199,7 @@
             </button>
 
             <script type="text/javascript">
-                button = document.getElementById("submit_button");
-                button.addEventListener("click", submit);
+                document.getElementById("submit_button").addEventListener("click", submit);
             </script>
 
             <div id="loadingSpinner" class="spinner-border spinner-border-sm ms-auto" role="status" style="display: none;" aria-hidden="true"></div>
