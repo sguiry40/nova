@@ -18,6 +18,9 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
     <div class="container-fluid mx-4">
         <a class="navbar-brand lh-lg fs-4 fw-bold grad-font" href="#">Nova</a>
+        <div class="loggedin-div" for="user_div">
+            <button for="logout_button">Logout</button>
+        </div>
     </div>
 </nav>
 
@@ -29,6 +32,7 @@
 </div>
 
 <div id="login_div" class="main-div">
+    <h3>Firebase Web login Example</h3>
     <input type="email" placeholder="Email" id="email_field" />
     <input type="password" placeholder="Password" id="password_field" />
 
@@ -36,7 +40,8 @@
 </div>
 
 <div id="user_div" class="loggedin-div">
-    <button id="logout_button">Logout</button>
+    <h3>Welcome User</h3>
+    <p id="user_para">Welcome to NOVA! You're currently logged into the website.</p>
 </div>
 
 <img src="novafulllogo.png"
