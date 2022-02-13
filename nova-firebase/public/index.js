@@ -1,10 +1,6 @@
 import { collection, setDoc, getFirestore, addDoc } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js"
-import { getAuth, signOut, signInWithEmailAndPassword, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithRedirect } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-auth.js"
-
-// const firebase = require("firebase");
-// // Required for side-effects
-// require("firebase/firestore");
+import { getAuth, signOut, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-auth.js"
 
 const firebaseConfig = {
     apiKey: "AIzaSyAScu_-xjhfkbmDqjSmO71zSIhU-j1tlD0",
