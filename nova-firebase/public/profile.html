@@ -18,8 +18,8 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
     <div class="container-fluid mx-4">
         <a class="navbar-brand lh-lg fs-4 fw-bold grad-font" href="#">Nova</a>
-        <div class="loggedin-div" for="user_div">
-            <button for="logout_button">Logout</button>
+        <div class="loggedin-div" id="user_div">
+            <button id="logout_button">Logout</button>
         </div>
     </div>
 </nav>
@@ -41,24 +41,11 @@
 
         <div class="mb-3">
             <label for="starting" class="form-label d-flex align-items-center text-subtle">
-<!--                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="color-green me-2" viewBox="0 0 16 16">-->
-<!--                    <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>-->
-<!--                </svg>-->
                 Name
             </label>
             <input name="starting" type="text" class="form-control light-input" id="starting"
                    placeholder="e.g. David Guiry">
         </div>
-<!--        <div class="mb-3">-->
-<!--            <label for="destination" class="form-label d-flex align-items-center text-subtle">-->
-<!--&lt;!&ndash;                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="color-green me-2" viewBox="0 0 16 16">&ndash;&gt;-->
-<!--&lt;!&ndash;                    <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>&ndash;&gt;-->
-<!--&lt;!&ndash;                </svg>&ndash;&gt;-->
-<!--                Age-->
-<!--            </label>-->
-<!--            <input name="age" type="number" class="form-control light-input" id="destination"-->
-<!--                   placeholder="e.g. 83">-->
-<!--        </div>-->
 
         <div class="mb-3">
             <label for="InputIdAge" class="form-label d-flex align-items-center text-subtle">Age</label>
@@ -184,22 +171,9 @@
             </div>
         </div>
 
-<!--            <div class="mb-3">-->
-<!--                <label for="formFile2" class="form-label">Photo 2</label>-->
-<!--                <input class="form-control" type="file" id="formFile2">-->
-<!--            </div>-->
-
-<!--            <div class="mb-3">-->
-<!--                <label for="formFile3" class="form-label">Photo 3</label>-->
-<!--                <input class="form-control" type="file" id="formFile3">-->
-<!--            </div>-->
-
         <div class="d-flex align-items-center mt-4">
             <button type="submit" class="btn btn-dark border-2" onclick="spin()">
                 Confirm&nbsp;
-<!--                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">-->
-<!--                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>-->
-<!--                </svg>-->
             </button>
             <div id="loadingSpinner" class="spinner-border spinner-border-sm ms-auto" role="status" style="display: none;" aria-hidden="true"></div>
         </div>
