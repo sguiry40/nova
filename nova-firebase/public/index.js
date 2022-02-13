@@ -1,6 +1,6 @@
-import { collection, setDoc, getFirestore } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore.js";
-import {initializeApp} from "https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js"
-import {getAuth} from "https://www.gstatic.com/firebasejs/9.1.3/firebase-auth.js"
+import { collection, setDoc, getFirestore, addDoc } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js"
+import { getAuth, signOut, signInWithEmailAndPassword, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithRedirect } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-auth.js"
 
 // const firebase = require("firebase");
 // // Required for side-effects
@@ -34,12 +34,12 @@ function login(){
     let userEmail = document.getElementById("email_field").value;
     let userPass = document.getElementById("password_field").value;
 
-    getAuth().signInWithEmailAndPassword(userEmail, userPass)
+	createUserWithEmailAndPassword(getAuth(), userEmail, userPass)
     .then(async (userCredential) => {
         const user = userCredential.user;
         console.log(user);
         try {
-            const docRef = await setDoc(collection(db, "users", user.uid, {merge: true}), {
+            const docRef = await addDoc(collection(db, "users", user.uid, {merge: true}), {
                 name: user.name
             });
             console.log("Document written with ID: ", docRef.id);
@@ -77,5 +77,16 @@ getAuth().onAuthStateChanged((user) => {
     // ...
   }
 });
+
+function logout() {
+	signOut(getAuth()).then(() => {
+		console.log("signed out");
+	}).catch((error) => {
+		console.log(error);
+	});
+}
+
+document.getElementById("login_button").addEventListener("click", login, false);
+document.getElementById("logout_button").addEventListener("click", logout, false);
 
 console.log(db);
