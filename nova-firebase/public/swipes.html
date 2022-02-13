@@ -14,7 +14,6 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
 </head>
 
 <body>
@@ -46,7 +45,13 @@
         
         function nextUser() {
             people.splice(0, 1);
+
+            console.log(people[0].innerHTML)
+
             let curUser = people[0];
+
+            console.log(curUser.innerHTML)
+
             document.getElementById('name').innerHTML = curUser[0];
             document.getElementById('age').innerHTML = curUser[1];
             document.getElementById('gender').innerHTML = curUser[2];
@@ -54,13 +59,14 @@
             document.getElementById('pic1').src = curUser[4];
             document.getElementById('pic2').src = curUser[5];
             document.getElementById('pic3').src = curUser[6];
-            document.getElementById('rating').innerHTML = curUser[7];
             document.getElementById('review1').innerHTML = curUser[8];
             document.getElementById('review2').innerHTML = curUser[9];
             document.getElementById('review3').innerHTML = curUser[10];
             document.getElementById('hobbies').innerHTML = curUser[11];
             document.getElementById('genie').innerHTML = curUser[12];
             document.getElementById('crush').innerHTML = curUser[13];
+            document.getElementById('rating').innerHTML = curUser[7];
+
             for (let i = 1; i <= 5; i++) {
                 document.getElementById(`star${i}`).classList.remove("checked");
                 if (i <= curUser[7]) {
