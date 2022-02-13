@@ -34,21 +34,14 @@ function signup(){
             const user = userCredential.user;
             console.log(user);
             try {
-                const docRef = doc(db, "users", user.uid);
-                await setDoc(docRef, { name: "coper" }, { merge: true });
+                const docRef = await addDoc(collection(db, "users", user.uid, {merge: true}), {
+                    name: user.name
+                });
                 console.log("Document written with ID: ", docRef.id);
-                console.log(db);
-                console.log(docRef);
-                const docRef2 = doc(db, "users", user.uid);
-                console.log(docRef2);
-                const docSnap = await getDoc(docRef);
-                if (docSnap.exists()) {
-                	console.log(docSnap.data());
-                }
             } catch (e) {
                 console.error("Error adding document: ", e);
             }
-            // window.location.replace('profile.html')
+            window.location.replace('profile.html')
         })
         .catch(function(error) {
             let errorMessage = error.message;
@@ -74,30 +67,30 @@ function login(){
             // } catch (e) {
             //     console.error("Error adding document: ", e);
             // }
-            // window.location.replace('profile.html')
+            window.location.replace('profile.html')
         })
         .catch(function(error) {
             let errorMessage = error.message;
 
             window.alert("Error : " + errorMessage);
         });
-    
-	createUserWithEmailAndPassword(getAuth(), userEmail, userPass)
-    .then((userCredential) => {
-        const user = userCredential.user;
-        console.log(user);
-        try {
-            const docRef = doc(db, "users", user.uid);
-            setDoc(docRef, {name: user.name }, { merge: true});
-            console.log("Document written with ID: ", docRef.id);
-        } catch (e) {
-            console.error("Error adding document: ", e);
-        }
-        // window.location.replace('profile.html')
-    })
-    .catch(function(error) {
-        let errorMessage = error.message;
-    });
+
+    createUserWithEmailAndPassword(getAuth(), userEmail, userPass)
+        .then((userCredential) => {
+            const user = userCredential.user;
+            console.log(user);
+            try {
+                const docRef = doc(db, "users", user.uid);
+                setDoc(docRef, {name: user.name }, { merge: true});
+                console.log("Document written with ID: ", docRef.id);
+            } catch (e) {
+                console.error("Error adding document: ", e);
+            }
+            window.location.replace('profile.html')
+        })
+        .catch(function(error) {
+            let errorMessage = error.message;
+        });
 
     // example of getting data
     //const docSnapshot = await getDoc(doc(db, "users", user.uid);
@@ -142,12 +135,12 @@ if (document.getElementById("logout_button") != null) {
     document.getElementById("logout_button").addEventListener("click", logout, false);
 }
 
-function addNewInfo() {
-    db.collection("users").document(getAuth().user.userId).update({"name": document.getElementById("starting").value,
-    "age": document.getElementById("OutputIdAge").value, "gender": document.getElementById("gender").value})
-
-    console.log("added new info to database");
-}
+// function addNewInfo() {
+//     db.collection("users").document(getAuth().user.userId).update({"name": document.getElementById("starting").value,
+//     "age": document.getElementById("OutputIdAge").value, "gender": document.getElementById("gender").value})
+//
+//     console.log("added new info to database");
+// }
 
 // async function submit() {
 //     console.log("submitted");
