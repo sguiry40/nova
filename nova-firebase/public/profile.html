@@ -12,7 +12,9 @@
     <script type="module" src="index.js"></script>
 
     <script type="text/javascript">
-        function submit() {
+
+        async function submit() {
+
             let name = document.getElementById("starting").value;
             let age = document.getElementById("OutputIdAge").value;
             let gender = document.getElementById("gender").value;
@@ -34,6 +36,12 @@
 
             else {
                 // add to database
+                await setDoc(doc(db, "users", "85HDG1FCgKcIEoEq2yIQ9x1G0Gs2"), {
+                    name: this.name,
+                    age: this.age,
+                    gender: this.gender
+                });
+
             }
         }
     </script>

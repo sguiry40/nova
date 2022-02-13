@@ -1,4 +1,4 @@
-import { collection, setDoc, getFirestore, addDoc, doc } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore.js";
+import { collection, setDoc, getFirestore, addDoc, doc, updateDoc } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js"
 import { getAuth, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-auth.js"
 
@@ -48,7 +48,7 @@ function signup(){
             } catch (e) {
                 console.error("Error adding document: ", e);
             }
-            window.location.replace('profile.html')
+            // window.location.replace('profile.html')
         })
         .catch(function(error) {
             let errorMessage = error.message;
@@ -74,7 +74,7 @@ function login(){
             // } catch (e) {
             //     console.error("Error adding document: ", e);
             // }
-            window.location.replace('profile.html')
+            // window.location.replace('profile.html')
         })
         .catch(function(error) {
             let errorMessage = error.message;
@@ -93,7 +93,7 @@ function login(){
         } catch (e) {
             console.error("Error adding document: ", e);
         }
-        window.location.replace('profile.html')
+        // window.location.replace('profile.html')
     })
     .catch(function(error) {
         let errorMessage = error.message;
@@ -142,11 +142,40 @@ if (document.getElementById("logout_button") != null) {
     document.getElementById("logout_button").addEventListener("click", logout, false);
 }
 
-function submit() {
-    console.log("submitted");
+function addNewInfo() {
+    db.collection("users").document(getAuth().user.userId).update({"name": document.getElementById("starting").value,
+    "age": document.getElementById("OutputIdAge").value, "gender": document.getElementById("gender").value})
 
-    let name = document.getElementById("starting").value;
-    let gender = document.getElementById("gender").value;
-    let pronouns = document.getElementById("pronouns").value;
-    let preferred_gender = document.getElementById("preferred_gender").value;
+    console.log("added new info to database");
 }
+
+// async function submit() {
+//     console.log("submitted");
+//
+//     let name = document.getElementById("starting").value;
+//     let gender = document.getElementById("gender").value;
+//     let pronouns = document.getElementById("pronouns").value;
+//     let preferred_gender = document.getElementById("preferred_gender").value;
+//
+//     await setDoc(doc(db, "users", "85HDG1FCgKcIEoEq2yIQ9x1G0Gs2"), {
+//         name: "DADWAWD",
+//         age: "8",
+//         gender: "Maleeee"
+//     });
+// }
+//
+// async function newFunc() {
+//     // await updateDoc(doc(db, "users", getAuth().user.uid), {name: "lolol", age: 20 });
+//     await setDoc(doc(db, "users", "85HDG1FCgKcIEoEq2yIQ9x1G0Gs2"), {
+//         name: "DADWAWD",
+//         age: "8",
+//         gender: "Maleeee"
+//     });
+// }
+
+// // Add a new document in collection "cities"
+// await setDoc(doc(db, "users", "85HDG1FCgKcIEoEq2yIQ9x1G0Gs2"), {
+//     name: "Atta",
+//     age: "4141",
+//     gender: "Mddale"
+// });
