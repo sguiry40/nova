@@ -24,7 +24,7 @@
         </div>
     </nav>
 
-    <div style="text-align: center">
+    <div style="text-align: center; margin-bottom: 15px;">
         <button class = "button" onclick="location.href='profile.html'" title = "Profile">🧑</button>
         <button class = "button" onclick="location.href='feedback.html'" title = "Feedback">🗣</button>
         <button class = "button" onclick="location.href='swipes.html'" title="Search">👀</button>
@@ -32,7 +32,20 @@
         <button class = "button" onclick="location.href='messages.html'" title="Messages">💬</button>
     </div>
 
-    <input type="text" id="message">
+    <div class="col-10 mx-auto col-lg-5">
+        <form method="post" class="p-5 border border-2 rounded-3 bg-white">
+
+            <h3 class="text-center">Messages</h3>
+
+            <div class="mb-3">
+                <label for="starting" class="form-label d-flex align-items-center text-subtle">
+                    Name
+                </label>
+                <input name="starting" type="text" class="form-control light-input" id="starting"
+                       placeholder="e.g. Hello!">
+            </div>
+        </form>
+    </div>
 
 </body>
 </html>
