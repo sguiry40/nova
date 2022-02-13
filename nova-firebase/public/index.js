@@ -134,12 +134,3 @@ else if (document.getElementById("signup_button") != null) {
 else if (document.getElementById("logout_button") != null) {
     document.getElementById("logout_button").addEventListener("click", logout, false);
 }
-
-function submit() {
-    console.log("submitted");
-
-    let name = document.getElementById("starting").value;
-    let gender = document.getElementById("gender").value;
-    let pronouns = document.getElementById("pronouns").value;
-    let preferred_gender = document.getElementById("preferred_gender").value;
-}
