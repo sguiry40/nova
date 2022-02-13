@@ -46,6 +46,7 @@ function login(){
         } catch (e) {
             console.error("Error adding document: ", e);
         }
+        window.location.replace('https://nova-f2979.web.app/profile.html')
     })
     .catch(function(error) {
         let errorMessage = error.message;

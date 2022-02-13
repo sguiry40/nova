@@ -40,15 +40,22 @@
             <input name="starting" type="text" class="form-control light-input" id="starting"
                    placeholder="e.g. David Guiry">
         </div>
+<!--        <div class="mb-3">-->
+<!--            <label for="destination" class="form-label d-flex align-items-center text-subtle">-->
+<!--&lt;!&ndash;                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="color-green me-2" viewBox="0 0 16 16">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                </svg>&ndash;&gt;-->
+<!--                Age-->
+<!--            </label>-->
+<!--            <input name="age" type="number" class="form-control light-input" id="destination"-->
+<!--                   placeholder="e.g. 83">-->
+<!--        </div>-->
+
         <div class="mb-3">
-            <label for="destination" class="form-label d-flex align-items-center text-subtle">
-<!--                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="color-green me-2" viewBox="0 0 16 16">-->
-<!--                    <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>-->
-<!--                </svg>-->
-                Age
-            </label>
-            <input name="age" type="number" class="form-control light-input" id="destination"
-                   placeholder="e.g. 83">
+            <label for="InputIdAge" class="form-label d-flex align-items-center text-subtle">Age</label>
+            <input type="range" name="InputNameAge" id="InputIdAge" class="form-range" value="18" min="18" max = "100" oninput="OutputIdAge.value = InputIdAge.value">
+            <output name="OutputNameAge" id="OutputIdAge">18</output>
+
         </div>
 
         <div class="mb-3">
