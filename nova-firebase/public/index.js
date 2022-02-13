@@ -34,10 +34,17 @@ function signup(){
             const user = userCredential.user;
             console.log(user);
             try {
-                const docRef = await addDoc(collection(db, "users", user.uid, {merge: true}), {
-                    name: user.name
-                });
+                const docRef = doc(db, "users", user.uid);
+                await setDoc(docRef, { name: "coper" }, { merge: true });
                 console.log("Document written with ID: ", docRef.id);
+                console.log(db);
+                console.log(docRef);
+                const docRef2 = doc(db, "users", user.uid);
+                console.log(docRef2);
+                const docSnap = await getDoc(docRef);
+                if (docSnap.exists()) {
+                	console.log(docSnap.data());
+                }
             } catch (e) {
                 console.error("Error adding document: ", e);
             }
@@ -50,7 +57,7 @@ function signup(){
         });
 }
 
-async function login(){
+function login(){
 
     let userEmail = document.getElementById("email_field").value;
     let userPass = document.getElementById("password_field").value;
@@ -128,9 +135,18 @@ function logout() {
 if (document.getElementById("login_button") != null) {
     document.getElementById("login_button").addEventListener("click", login, false);
 }
-else if (document.getElementById("signup_button") != null) {
+if (document.getElementById("signup_button") != null) {
     document.getElementById("signup_button").addEventListener("click", signup, false)
 }
-else if (document.getElementById("logout_button") != null) {
+if (document.getElementById("logout_button") != null) {
     document.getElementById("logout_button").addEventListener("click", logout, false);
+}
+
+function submit() {
+    console.log("submitted");
+
+    let name = document.getElementById("starting").value;
+    let gender = document.getElementById("gender").value;
+    let pronouns = document.getElementById("pronouns").value;
+    let preferred_gender = document.getElementById("preferred_gender").value;
 }
